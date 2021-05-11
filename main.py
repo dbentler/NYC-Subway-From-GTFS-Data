@@ -60,6 +60,6 @@ def color_stations(station_id):
 
 if __name__ == "__main__":
     stations = parse_data("K:\\!dev\\Python\\nyc_subway2\\NYC-Subway-From-GTFS-Data\\shapes.txt") # You'll need to copy your own path to the shapes.txt file here.
-    plt.scatter([ float(obj.stat_lat) for obj in stations ], [ float(obj.stat_long) for obj in stations ], color=[ color_stations(obj.stat_id) for obj in stations ])
+    plt.scatter([ float(obj.stat_long) for obj in stations ], [ float(obj.stat_lat) for obj in stations ], color=[ color_stations(obj.stat_id) for obj in stations ])
     plt.show()
 
