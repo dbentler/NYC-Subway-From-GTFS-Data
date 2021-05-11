@@ -28,7 +28,7 @@ def parse_data(file):
                 pass
             else:
                 f_mat = list(line.split(","))
-                tmp_stat = Station(f_mat[0], f_mat[1], f_mat[2])
+                tmp_stat = Station(f_mat[0], f_mat[1], f_mat[2]) # We already know what information we need from each line since GTFS files follows a set standard.
                 stations.append(tmp_stat)
         return stations
 
@@ -40,11 +40,11 @@ def color_stations(station_id):
     for char in station_id:
         if char in "123":
             return "red"
-        if char in "H456":
+        if char in "456":
             return "green"
         if char in "7":
             return "magenta"
-        if char in "ACE":
+        if char in "ACEH":
             return "blue"
         if char in "BDFM":
             return "orange"
@@ -59,7 +59,6 @@ def color_stations(station_id):
         return "lime"
 
 if __name__ == "__main__":
-    stations = parse_data("K:\\!dev\\Python\\nyc_subway2\\NYC-Subway-From-GTFS-Data\\shapes.txt") # You'll need to copy your own path to the shapes.txt file here.
+    stations = parse_data("K:\\!dev\\Python\\nyc_subway2\\NYC-Subway-From-GTFS-Data\\nyc\\shapes.txt") # You'll need to copy your own path to the shapes.txt file here.
     plt.scatter([ float(obj.stat_long) for obj in stations ], [ float(obj.stat_lat) for obj in stations ], color=[ color_stations(obj.stat_id) for obj in stations ])
     plt.show()
-
