@@ -33,11 +33,33 @@ def parse_data(file):
         return stations
 
 def color_stations(station_id):
-    pass
-
+    """
+    Returns station color in accordance of the line it belongs to.
+    Station.stat_id --> string
+    """
+    for char in station_id:
+        if char in "123":
+            return "red"
+        if char in "H456":
+            return "green"
+        if char in "7":
+            return "magenta"
+        if char in "ACE":
+            return "blue"
+        if char in "BDFM":
+            return "orange"
+        if char in "G":
+            return "lime"
+        if char in "JZ":
+            return "brown"
+        if char in "NQR":
+            return "yellow"
+        if char in "LSI":
+            return "gray"
+        return "lime"
 
 if __name__ == "__main__":
     stations = parse_data("K:\\!dev\\Python\\nyc_subway2\\NYC-Subway-From-GTFS-Data\\shapes.txt") # You'll need to copy your own path to the shapes.txt file here.
-    plt.scatter([ float(obj.stat_lat) for obj in stations ], [ float(obj.stat_long) for obj in stations ])
+    plt.scatter([ float(obj.stat_lat) for obj in stations ], [ float(obj.stat_long) for obj in stations ], color=[ color_stations(obj.stat_id) for obj in stations ])
     plt.show()
 
