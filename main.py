@@ -30,6 +30,7 @@ def parse_data(file):
                 f_mat = list(line.split(","))
                 tmp_stat = Station(f_mat[0], f_mat[1], f_mat[2]) # We already know what information we need from each line since GTFS files follows a set standard.
                 stations.append(tmp_stat)
+        f.close()
         return stations
 
 def color_stations(station_id):
