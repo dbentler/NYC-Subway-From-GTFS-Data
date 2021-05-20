@@ -21,4 +21,4 @@ Enjoy!
 # Dependencies
 matplotlib
 
-You can also run `pip install requirements.txt`.
+You can also run `pip install -r requirements.txt`.
